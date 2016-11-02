@@ -14,13 +14,10 @@ var game = {
    boxCountHeight: 5,
    boxCountWidth: 5,
 
-// sets the speed calculation
-   velocity: Math.floor(Math.random() * ( 100 ) + 1),
-
 // sets the boundaries for each dimension 
    canvasTop: 0,
    canvasBottom: 605,
-   canvasLeft: 0;
+   canvasLeft: 0,
    canvasRight: 505
 
 };
@@ -40,7 +37,7 @@ var Enemy = function(x, y, speed) {
     this.y = y;
 
     //sets the speed of the enemy function
-    this.speed = speed * game.velocity;
+    this.velocity = Math.floor(Math.random() * ( 100 ) * 5);
 
     //sets the size of the enemy sprite
     this.width = 100;
@@ -56,11 +53,9 @@ var Enemy = function(x, y, speed) {
 Enemy.prototype.update = function(dt) {
 
     //moves enemy sprites
-    this.x += this.speed * dt;
+    this.x += this.velocity * dt;
     
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
+    //
 };
 
 // Draw the Enemy on the screen, required method for game

@@ -1,22 +1,50 @@
-// Enemies our player must avoid
-var Enemy = function() {
+/*==========================
+
+Speed
+
+===========================*/
+
+var velocity = Math.floor(Math.random() * ( 100 ) + 1);
+
+/*==========================
+
+Enemies our player must avoid
+
+===========================*/
+
+var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
+ 
+    // sets the arguments of the Enemy function.
+    this.x = x;
+    this.y = y;
 
+    //sets the speed of the enemy function
+    this.speed = speed * velocity;
+
+    //sets the size of the enemy sprite
+    this.width = 100;
+    this.height = 65;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+
 };
 
-// Update the enemy's position, required method for game
+// Update the Enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
+
+    //moves enemy sprites
+    this.x += this.speed * dt;
+    
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
 };
 
-// Draw the enemy on the screen, required method for game
+// Draw the Enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
@@ -25,12 +53,64 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
+/*==========================
+
+this is the player function
+
+===========================*/
+
+var playerObject = function (){
+
+    // this is the player sprite
+    this.sprite = 'images/player-boy.png';
+};
+
+// this creates the player update method
+playerObject.prototype.update = function (dt){};
+
+// this creates the player render method
+playerObject.prototype.render = function (x, y){
+    Object.create(Enemy.prototype.render);
+};
+
+// this creates the player handle method
+playerObject.prototype.handleInput = function(){
+    this.handleInput;
+};
 
 // Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
+// Place all Enemy objects in an array called allEnemies
+
+/*==============
+
+enemies objects
+
+===============*/
+
+allEnemies = [
+    new Enemy(
+    //first argument sets the x location (horizontal)
+    -100,
+    
+    //second argument sets the y location (vertical)
+    60,
+
+    //third argument sets the speed 
+    3),
+    new Enemy(100,140,2),
+    new Enemy(-300,230,5),
+];
+
 // Place the player object in a variable called player
 
+/*==============
 
+player object
+
+===============*/
+
+player = new playerObject;
+player.render(5,10);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -44,3 +124,9 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+/*==============
+
+boundaries
+
+===============*/

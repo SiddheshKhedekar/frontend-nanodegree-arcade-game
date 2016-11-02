@@ -14,16 +14,16 @@ var game = {
    boxCountHeight: 5,
    boxCountWidth: 5,
 
-   velocity: Math.floor(Math.random() * ( 100 ) + 1)
+// sets the speed calculation
+   velocity: Math.floor(Math.random() * ( 100 ) + 1),
+
+// sets the boundaries for each dimension 
+   canvasTop: 0,
+   canvasBottom: 605,
+   canvasLeft: 0;
+   canvasRight: 505
+
 };
-
-/*==========================
-
-Speed
-
-===========================*/
-
-
 
 /*==========================
 

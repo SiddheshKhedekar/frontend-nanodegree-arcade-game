@@ -7,11 +7,14 @@ Game Object
 var game = {
 
 // sets the width / height of each box or row.
-   boxHeight: 101;
-   boxWidth: 101;
+   boxHeight: 101,
+   boxWidth: 101,
+
 // sets the number of boxes in the game
-   boxCountHeight: 5;
-   boxCountWidth: 5;
+   boxCountHeight: 5,
+   boxCountWidth: 5,
+
+   velocity: Math.floor(Math.random() * ( 100 ) + 1)
 };
 
 /*==========================
@@ -20,7 +23,7 @@ Speed
 
 ===========================*/
 
-var velocity = Math.floor(Math.random() * ( 100 ) + 1);
+
 
 /*==========================
 
@@ -37,7 +40,7 @@ var Enemy = function(x, y, speed) {
     this.y = y;
 
     //sets the speed of the enemy function
-    this.speed = speed * velocity;
+    this.speed = speed * game.velocity;
 
     //sets the size of the enemy sprite
     this.width = 100;

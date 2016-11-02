@@ -17,7 +17,7 @@ var game = {
 // sets the boundaries for each dimension 
    canvasTop: 0,
    canvasBottom: 605,
-   canvasLeft: 0,
+   canvasLeft: -100,
    canvasRight: 505
 
 };
@@ -55,7 +55,12 @@ Enemy.prototype.update = function(dt) {
     //moves enemy sprites
     this.x += this.velocity * dt;
     
-    //
+    //checks for collision
+    if (this.x > (game.canvasRight + 120)) {
+
+    // returns enemy to the left canvas bounds
+    	this.x = game.canvasLeft;
+    }
 };
 
 // Draw the Enemy on the screen, required method for game

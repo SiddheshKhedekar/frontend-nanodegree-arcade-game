@@ -1,5 +1,21 @@
 /*==========================
 
+Game Object
+
+===========================*/
+
+var game = {
+
+// sets the width / height of each box or row.
+   boxHeight: 101;
+   boxWidth: 101;
+// sets the number of boxes in the game
+   boxCountHeight: 5;
+   boxCountWidth: 5;
+};
+
+/*==========================
+
 Speed
 
 ===========================*/
